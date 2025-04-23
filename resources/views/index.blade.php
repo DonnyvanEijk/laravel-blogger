@@ -63,7 +63,9 @@
           <div class="card-body">
             <h5 class="card-title">{{ $post->subject }}</h5>
             <p class="card-text"><strong>Name:</strong> {{ $post->name }}</p>
-            <p class="card-text">{{ $post->message }}</p>
+            <p class="card-text">
+              {!! preg_replace('/(https?:\/\/[^\s]+)/', '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>', e($post->message)) !!}
+            </p></p>
             <p class="card-text text-muted"><small>{{ $post->created_at }}</small></p>
           </div>
         </div>
