@@ -44,6 +44,10 @@
               <div id="subDesc" class="form-text">Find a fitting subject for your post!</div>
             </div>
             <div class="mb-3">
+              <label for="image" class="form-label">Optional image URL</label>
+              <input type="text" class="form-control" id="image_url" name="image_url" placeholder="Image URL here">
+            </div>
+            <div class="mb-3">
               <label for="message" class="form-label">Message</label>
               <textarea class="form-control" id="message" name="message" rows="3" placeholder="Enter your message"></textarea>
             </div>
@@ -60,6 +64,9 @@
     @foreach ($posts as $post)
       <div class="col-md-4 mb-4">
         <div class="card shadow-sm h-100">
+        @if(!empty($post->image_url) && filter_var($post->image_url, FILTER_VALIDATE_URL))
+          <img src="{{ $post->image_url }}" class="card-img-top" alt="post-image">
+        @endif
           <div class="card-body">
             <h5 class="card-title">{{ $post->subject }}</h5>
             <p class="card-text"><strong>Name:</strong> {{ $post->name }}</p>

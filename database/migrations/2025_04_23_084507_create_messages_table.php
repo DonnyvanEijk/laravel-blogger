@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('subject');
             $table->string('message');
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

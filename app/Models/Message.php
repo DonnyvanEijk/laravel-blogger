@@ -13,5 +13,6 @@ class Message extends Model
         'name',
         'subject',
         'message',
+        "image_url",
     ];
 }

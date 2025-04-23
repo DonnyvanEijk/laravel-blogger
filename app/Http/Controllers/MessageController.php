@@ -9,7 +9,7 @@ class MessageController extends Controller
 {
     public function index()
     {
-        $posts = Message::all()->sortByDesc('created_at');
+        $posts = Message::orderBy('created_at', 'desc')->get();
         return view('index', compact('posts'));
     }
 
@@ -19,12 +19,14 @@ class MessageController extends Controller
             'name' => 'required|string|max:255',
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
+            'image_url' => 'nullable|string',
         ]);
 
         $post = new Message;
         $post->name = $validatedData['name'];
         $post->subject = $validatedData['subject'];
         $post->message = $validatedData['message'];
+        $post->image_url = $validatedData['image_url'] ?? null;
         $post->save();
 
         return redirect("/");
