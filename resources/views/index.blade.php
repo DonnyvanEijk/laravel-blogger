@@ -30,7 +30,7 @@
       <div class="card shadow-sm mb-4">
         <div class="card-body">
           <h1 class="card-title text-center">Make a Post</h1>
-          <p class="card-text text-center">Place and read posts here!</p>
+          <p class="card-text text-center">Place and read posts here! When posting a google warning will appear, click "still send" once and refresh</p>
           <form action="{{ route('store') }}" method="POST">
             @csrf
             <div class="mb-3">
